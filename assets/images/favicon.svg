@@ -1,0 +1,19 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+    <path d="M10 14C18 22 32 22 40 14" stroke="url(#fav_glow)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+    <circle cx="25" cy="27" r="9" fill="url(#fav_bulb)"/>
+    <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+    <path d="M12 38C18 34 32 34 38 38" stroke="url(#fav_glow)" stroke-width="2" stroke-linecap="round"/>
+    <defs>
+        <linearGradient id="fav_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#D97706"/>
+            <stop offset="1" stop-color="#F59E0B"/>
+        </linearGradient>
+        <radialGradient id="fav_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+            <stop stop-color="#F59E0B"/>
+            <stop offset="1" stop-color="#D97706"/>
+        </radialGradient>
+    </defs>
+</svg>

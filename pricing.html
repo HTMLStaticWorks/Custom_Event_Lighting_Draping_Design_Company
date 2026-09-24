@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Guide & Packages | Custom Event Lighting & Draping Design Company</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Transparent pricing guide for event lighting packages, ceiling draping, crystal chandelier rentals, and custom gobo projections by LuminaDrape.">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .accordion-button {
+            color: var(--text-main) !important;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--sunflower-yellow) !important;
+            background-color: var(--secondary-bg) !important;
+            font-weight: 600;
+        }
+
+        .planner-card {
+            background: #0b0d14;
+            border-radius: 4rem;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+        }
+        .rotate-badge {
+            width: 150px;
+            height: 150px;
+            animation: rotate 15s linear infinite;
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            opacity: 0.1;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .comparison-wrap {
+            background: var(--secondary-bg);
+            border-radius: 5rem;
+            padding: 5rem 0;
+        }
+        .compare-card {
+            background: var(--card-bg);
+            border-radius: 3rem;
+            padding: 3rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+        }
+        .compare-card.premium {
+            border: 1px solid var(--sunflower-yellow);
+            box-shadow: 0 20px 50px var(--shadow-glow);
+        }
+        .compare-card:hover {
+            transform: translateY(-10px);
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .check-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+        .icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .accordion-item {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+        }
+        .accordion-button {
+            background-color: var(--card-bg) !important;
+            color: var(--text-main) !important;
+            box-shadow: none !important;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--secondary-bg) !important;
+            color: var(--sunflower-yellow) !important;
+        }
+
+        .popular-card {
+            position: relative;
+            border: 1px solid var(--sunflower-yellow) !important;
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 30px 60px var(--shadow-glow) !important;
+            overflow: visible !important;
+        }
+        @media (max-width: 991px) {
+            .popular-card {
+                transform: scale(1);
+            }
+        }
+        .popular-badge-new {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--sunflower-yellow), var(--sky-orange));
+            color: #ffffff !important;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px var(--shadow-glow);
+            white-space: nowrap;
+            z-index: 100;
+            animation: badge-pulse 3s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes badge-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.08); }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="38" height="38" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                    <path d="M10 14C18 22 32 22 40 14" stroke="url(#nav_glow)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                    <circle cx="25" cy="27" r="9" fill="url(#nav_bulb)"/>
+                    <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                    <path d="M12 38C18 34 32 34 38 38" stroke="url(#nav_glow)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="nav_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D97706"/>
+                            <stop offset="1" stop-color="#F59E0B"/>
+                        </linearGradient>
+                        <radialGradient id="nav_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                            <stop stop-color="#F59E0B"/>
+                            <stop offset="1" stop-color="#D97706"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: var(--sunflower-yellow); letter-spacing: -0.5px; font-family: 'Cormorant Garamond', Georgia, serif;">Lumina<span style="color: var(--sky-orange);">Drape</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Date</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Date</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/12.png') center/cover no-repeat; min-height: 420px; display: flex; align-items: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(11, 13, 20, 0.82);"></div>
+        <div class="container position-relative z-1">
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">Pricing Guide & Tiers</span>
+            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Event Lighting & Draping Packages</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Select an all-inclusive lighting, drapery, and chandelier package tailored to your venue scale and aesthetic vision.</p>
+        </div>
+    </header>
+
+    <!-- Premium Event Packages -->
+    <section class="section-padding mt-5 pt-4">
+        <div class="container">
+            <div class="row g-4 mt-5">
+                <!-- Essential Glow -->
+                <div class="col-lg-4">
+                    <div class="pricing-card text-center p-4 rounded-4" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div class="pricing-icon-wrap mb-3" style="color: var(--sunflower-yellow);"><i class="bi bi-lightbulb display-5"></i></div>
+                        <h4 class="fw-bold mb-2" style="font-family: var(--font-heading);">Essential Ambient Glow</h4>
+                        <p class="text-muted small mb-4">Ideal for intimate dinners, cocktail spaces, or small receptions.</p>
+                        <h2 class="display-4 fw-bolder mb-1" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">$850<small class="fs-6 text-muted">/ event package</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-muted text-start">
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> 12 Wireless RGBAW LED Uplights</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Head Table Warm Accent Spotlight</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Custom Warm Amber Color Tuning</li>
+                            <li class="mb-2 opacity-50"><i class="bi bi-x me-2"></i> Ceiling Sheer Draping Canopy</li>
+                            <li class="mb-2 opacity-50"><i class="bi bi-x me-2"></i> Crystal Chandelier Rental</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold mt-auto">Enquire Essential</a>
+                    </div>
+                </div>
+                
+                <!-- Grand Ballroom Romance -->
+                <div class="col-lg-4">
+                    <div class="pricing-card popular-card text-center p-4 rounded-4" style="background: var(--card-bg);">
+                        <div class="popular-badge-new">Most Popular Choice</div>
+                        <div class="pricing-icon-wrap mb-3" style="color: var(--sunflower-yellow);"><i class="bi bi-stars display-5"></i></div>
+                        <h4 class="fw-bold mb-2" style="font-family: var(--font-heading);">Grand Ballroom Romance</h4>
+                        <p class="text-muted small mb-4">Complete atmospheric transformation for wedding receptions & galas.</p>
+                        <h2 class="display-4 fw-bolder mb-1" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">$1,850<small class="fs-6 text-muted">/ event package</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-muted text-start">
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--sunflower-yellow);"></i> 24 Wireless RGBAW Perimeter Uplights</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--sunflower-yellow);"></i> Sheer Chiffon Ceiling Fabric Canopy</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--sunflower-yellow);"></i> 1 Grand Vintage Crystal Chandelier</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color: var(--sunflower-yellow);"></i> Dedicated On-Site Lighting Technician</li>
+                            <li class="mb-2 opacity-50"><i class="bi bi-x me-2"></i> Multi-Chandelier Array & Trussing</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold shadow mt-auto">Book Grand Ballroom</a>
+                    </div>
+                </div>
+                
+                <!-- Royal Gala & Estate Overhaul -->
+                <div class="col-lg-4">
+                    <div class="pricing-card text-center p-4 rounded-4" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div class="pricing-icon-wrap mb-3" style="color: var(--sunflower-yellow);"><i class="bi bi-gem display-5"></i></div>
+                        <h4 class="fw-bold mb-2" style="font-family: var(--font-heading);">Royal Gala & Estate</h4>
+                        <p class="text-muted small mb-4">Bespoke lighting architecture & full venue drapery for luxury events.</p>
+                        <h2 class="display-4 fw-bolder mb-1" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">$3,450<small class="fs-6 text-muted">/ event package</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-muted text-start">
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Full Wall & Column RGBAW Uplighting (36+)</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Wall-to-Wall Sheer & Velvet Backdrop Drapery</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> 3 Vintage Crystal Chandeliers</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Custom Monogram Gobo Projection</li>
+                            <li class="mb-2"><i class="bi bi-check2 me-2" style="color: var(--sunflower-yellow);"></i> Pin-Spotting on 15 Centerpieces</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold mt-auto">Request Royal Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section 1: Trusted Hardware Brands (Image Cards) -->
+    <section id="premium-materials" class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Equipment Standards</span>
+                <h2 class="display-5 fw-bolder text-main">Brands & Fixtures We Use</h2>
+                <p class="text-muted lead mt-3">We partner exclusively with certified lighting and drapery manufacturers to guarantee flawless safety & light output.</p>
+            </div>
+            
+            <div class="row g-4 mt-2">
+                <!-- Brand Card 1 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/13.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Chauvet Professional">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="font-family: var(--font-heading);">Chauvet Professional LED</h3>
+                                    <p class="text-light opacity-75 mb-0">High-CRI RGBAW wireless LED fixtures for flicker-free, rich warm amber and vibrant wall washes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 2 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/14.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Rose Brand Fabrics">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="font-family: var(--font-heading);">Rose Brand Flame-Retardant Fabrics</h3>
+                                    <p class="text-light opacity-75 mb-0">Certified IFR sheer chiffon, satin, and heavy velvet drapes compliant with NFPA 701 venue fire safety.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 3 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/15.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Schönbek Crystal Chandeliers">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="font-family: var(--font-heading);">Schönbek Vintage Crystal Chandeliers</h3>
+                                    <p class="text-light opacity-75 mb-0">Hand-cut crystal and vintage brass chandeliers engineered for safe overhead rigging and warm glow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 4 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/16.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Astera Wireless DMX">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="font-family: var(--font-heading);">Astera Wireless Smart DMX</h3>
+                                    <p class="text-light opacity-75 mb-0">Battery-powered smart lighting tubes & pin-spots with instant wireless app scene programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .brand-image-card { min-height: 350px; }
+                .brand-image-card img { transition: transform 0.6s ease; }
+                .brand-gradient-overlay { background: linear-gradient(to top, rgba(11,13,20,0.95) 0%, rgba(11,13,20,0.2) 100%); }
+                .brand-image-card:hover img { transform: scale(1.08); }
+            </style>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Frequently Asked Questions</span>
+                <h2 class="display-5 fw-bolder text-main">Pricing & Setup FAQ</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="pricingFAQ">
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    Is full setup and teardown included in the package price?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Yes! Every package includes delivery, white-glove setup hours prior to guest arrival, safety testing, and post-event midnight teardown.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    Do your uplights require venue power outlets?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    No! We strictly use 100% wireless battery-powered LED uplights that operate up to 20 hours on a single charge. No messy extension cords across your walkways.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    Are your fabrics flame-retardant for venue safety guidelines?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Yes! All ceiling drapes and backdrop fabrics carry NFPA 701 flame-retardant certifications required by major hotels and historic venues.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                    Can we change the light colors during the event?
+                                </button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Absolutely! With our wireless DMX controllers, we can switch from romantic amber warm light during dinner to vibrant party hues when dancing starts.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                        <path d="M10 14C18 22 32 22 40 14" stroke="url(#foot_glow)" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                        <circle cx="25" cy="27" r="9" fill="url(#foot_bulb)"/>
+                        <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                        <path d="M12 38C18 34 32 34 38 38" stroke="url(#foot_glow)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="foot_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D97706"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                            </linearGradient>
+                            <radialGradient id="foot_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                                <stop stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -0.5px; font-family: 'Cormorant Garamond', serif; color: var(--sunflower-yellow);">
+                            Lumina<span style="color: var(--sky-orange);">Drape</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Custom Event Lighting & Draping Design Company. Transforming venues with ambient uplighting, sheer fabric draping, and crystal chandelier rentals.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing Guide</a></li>
+                        <li><a href="quote.html">Enquire Date</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Packages</h5>
+                    <ul>
+                        <li><a href="pricing.html">Essential Glow</a></li>
+                        <li><a href="pricing.html">Grand Ballroom</a></li>
+                        <li><a href="pricing.html">Royal Gala</a></li>
+                        <li><a href="gallery.html">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Event Date Enquiry</h5>
+                    <p class="text-muted">Check availability for your event date with our team.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Event Date</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 Custom Event Lighting & Draping Design Company (LuminaDrape). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Gallery | Custom Event Lighting & Draping Design Company</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Portfolio of LuminaDrape event lighting transformations, ceiling drapery designs, crystal chandelier rentals, and monogram gobo projections.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-tag {
+            background: var(--sunflower-yellow);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .before-after-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(11,13,20,0.85);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .bento-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+        .bento-item {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .bento-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .bento-wide {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .bento-tall {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        .bento-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11,13,20,0.88) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .bento-overlay h5 {
+            color: white;
+            margin: 0;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .bento-overlay span {
+            color: var(--sunflower-yellow);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            transition-delay: 0.1s;
+        }
+        .bento-item:hover img {
+            transform: scale(1.08);
+        }
+        .bento-item:hover .bento-overlay {
+            opacity: 1;
+        }
+        .bento-item:hover .bento-overlay h5,
+        .bento-item:hover .bento-overlay span {
+            transform: translateY(0);
+        }
+        @media (max-width: 992px) {
+            .bento-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bento-large, .bento-wide {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width: 576px) {
+            .bento-gallery {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+            .bento-large, .bento-wide, .bento-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="38" height="38" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                    <path d="M10 14C18 22 32 22 40 14" stroke="url(#nav_glow)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                    <circle cx="25" cy="27" r="9" fill="url(#nav_bulb)"/>
+                    <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                    <path d="M12 38C18 34 32 34 38 38" stroke="url(#nav_glow)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="nav_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D97706"/>
+                            <stop offset="1" stop-color="#F59E0B"/>
+                        </linearGradient>
+                        <radialGradient id="nav_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                            <stop stop-color="#F59E0B"/>
+                            <stop offset="1" stop-color="#D97706"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: var(--sunflower-yellow); letter-spacing: -0.5px; font-family: 'Cormorant Garamond', Georgia, serif;">Lumina<span style="color: var(--sky-orange);">Drape</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Date</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Date</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/26.png') center/cover no-repeat; min-height: 420px; display: flex; align-items: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(11, 13, 20, 0.82);"></div>
+        <div class="container position-relative z-1">
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">Design Portfolio</span>
+            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Lighting & Draping Gallery</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Explore our signature venue transformations, ceiling draping canopies, and crystal chandelier displays.</p>
+        </div>
+    </header>
+
+    <!-- Transformation Portfolio Gallery Section -->
+    <section class="section-padding" style="background: var(--primary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Transformation Portfolio</span>
+                <h2 class="display-5 fw-bolder text-main mt-2">Signature Event Lighting & Draping Gallery</h2>
+                <p class="text-muted lead mt-3 mx-auto" style="max-width: 650px;">Explore our ambient venue visual transformations crafted with precision uplighting, silk canopy draping, and crystal chandelier rentals.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+                <button class="btn btn-project btn-primary-fest rounded-pill px-4">All Installations</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4">Ballroom Uplighting</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4">Ceiling Draping</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4">Chandeliers</button>
+            </div>
+
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/26.png" alt="Grand Ballroom Ambient Transformation" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >BALLROOM UPLIGHTING</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Grand Ballroom Ambient Transformation</h4>
+                            <p class="text-muted mb-0">Wireless RGBAW LED perimeter wash highlighting historic architectural arches and sheer backdrop drapes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/27.png" alt="Romantic Ceiling Fabric Canopy" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >CEILING DRAPING</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Romantic Tent Ceiling Fabric Canopy</h4>
+                            <p class="text-muted mb-0">Full ceiling sheer drapery swoops integrated with warm fairy twinkle lights for a fairytale reception.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/28.png" alt="Vintage Crystal Chandelier Rigging" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >CHANDELIER RENTAL</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Vintage Crystal Chandelier Rigging</h4>
+                            <p class="text-muted mb-0">Statement 6-foot crystal chandelier suspended over the main wedding dance floor with remote dimmers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/29.png" alt="Custom Monogram Gobo Projection" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >GOBO PROJECTION</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Custom Monogram Dance Floor</h4>
+                            <p class="text-muted mb-0">Custom monogram gobo light projection illuminating polished hardwood dance floors with crisp warm precision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finished Projects Gallery Section -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Masterpiece Portfolio</span>
+                <h2 class="display-5 fw-bolder text-main">Featured Event Installations</h2>
+                <p class="text-muted lead mt-3">A closer look at our pristine lighting setups for luxury weddings and corporate galas.</p>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/30.png" alt="Luxury Wedding Ballroom">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Wedding Gala</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Emerald Coast Grand Ballroom</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/1.png" alt="White Chiffon Canopy">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Ceiling Draping</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Fairytale Chiffon Canopy</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/g3.jpg" alt="Vintage Chandelier Table">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Chandelier Display</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Vintage Crystal Banquet Centerpiece</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/3.png" alt="Column Warm Uplighting">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Uplighting</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Warm Amber Column Glow</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/g2.jpg" alt="Outdoor Festoon Lights">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Outdoor Bistro</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Courtyard String Festoon Glow</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="assets/images/g1.jpg" alt="Pinspot Centerpiece">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Pin-Spotting</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Gala Floral Table Focus</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3">Reserve Lighting for Your Date</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Box Gallery Section -->
+    <section class="section-padding overflow-hidden" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Curated Showcase</span>
+                <h2 class="display-5 fw-bolder text-main">Our Proudest Event Lighting Designs</h2>
+                <p class="text-muted lead mt-3">A curated visual grid of custom lighting and draping installations.</p>
+            </div>
+            
+            <div class="bento-gallery mt-5">
+                <div class="bento-item bento-large group">
+                    <img src="assets/images/g5.jpg" alt="Grand Ballroom Lighting">
+                    <div class="bento-overlay">
+                        <h5>Annual Corporate Gala</h5>
+                        <span>Full Venue Ambient Transformation</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-tall group">
+                    <img src="assets/images/7.png" alt="Column Wash">
+                    <div class="bento-overlay">
+                        <h5>Architectural Column Wash</h5>
+                        <span>Wireless LED Uplighting</span>
+                    </div>
+                </div>
+                <div class="bento-item group">
+                    <img src="assets/images/8.png" alt="Fabric Swags">
+                    <div class="bento-overlay">
+                        <h5>Silk Fabric Swags</h5>
+                        <span>Ceiling Draping</span>
+                    </div>
+                </div>
+                <div class="bento-item group">
+                    <img src="assets/images/9.png" alt="Crystal Chandelier">
+                    <div class="bento-overlay">
+                        <h5>Vintage Brass Chandelier</h5>
+                        <span>Statement Rental</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-wide group">
+                    <img src="assets/images/10.png" alt="Monogram Projection">
+                    <div class="bento-overlay">
+                        <h5>Custom Monogram Dance Floor</h5>
+                        <span>Gobo Light Projection</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-wide group">
+                    <img src="assets/images/11.png" alt="Outdoor Festoon Glow">
+                    <div class="bento-overlay">
+                        <h5>Courtyard String Festoon Glow</h5>
+                        <span>Atmospheric Outdoor Bistro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                        <path d="M10 14C18 22 32 22 40 14" stroke="url(#foot_glow)" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                        <circle cx="25" cy="27" r="9" fill="url(#foot_bulb)"/>
+                        <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                        <path d="M12 38C18 34 32 34 38 38" stroke="url(#foot_glow)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="foot_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D97706"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                            </linearGradient>
+                            <radialGradient id="foot_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                                <stop stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -0.5px; font-family: 'Cormorant Garamond', serif; color: var(--sunflower-yellow);">
+                            Lumina<span style="color: var(--sky-orange);">Drape</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Custom Event Lighting & Draping Design Company. Premier uplighting, ceiling drapery, and chandelier rentals for unforgettable celebrations.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing Guide</a></li>
+                        <li><a href="quote.html">Enquire Date</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Portfolio</h5>
+                    <ul>
+                        <li><a href="gallery.html">Lighting Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="quote.html">Quote Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Event Date Availability</h5>
+                    <p class="text-muted">Speak with our event designers to reserve your date.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Event Date</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 Custom Event Lighting & Draping Design Company (LuminaDrape). All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

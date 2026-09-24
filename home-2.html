@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Event Lighting & Draping Design Company | Architectural Illumination & Draping Artistry</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .hero-2 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            background: linear-gradient(135deg, rgba(11, 13, 20, 0.92) 0%, rgba(11, 13, 20, 0.55) 100%), url('assets/images/13.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-2::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, #0b0d14 120%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-2 .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-2 .hero-content h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-2 .hero-content h1 span {
+            color: var(--sunflower-yellow) !important;
+            -webkit-text-fill-color: #f59e0b !important;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.95);
+        }
+
+        .hero-2 .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95) !important;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-2 .hero-content h1 { font-size: 3.2rem; }
+            .hero-2 { padding: 100px 5%; text-align: center; justify-content: center; }
+            .hero-2 .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-2 .d-flex { justify-content: center; }
+        }
+        
+        .glass-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(11, 13, 20, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fef3c7;
+            padding: 0.45rem 1.3rem 0.45rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-badge:hover {
+            border-color: rgba(245, 158, 11, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .glass-badge i {
+            color: #0b0d14;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            font-size: 0.95rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        .hero-graphic {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 1 / 1.05;
+            margin: 0 auto;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-frame-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 200px 200px 40px 40px;
+            overflow: hidden;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(245, 158, 11, 0.25);
+            background: #0b0d14;
+            z-index: 2;
+        }
+
+        .hero-img-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .hero-graphic:hover .hero-img-main {
+            transform: scale(1.06);
+        }
+
+        /* Ambient Light Sweep Effect */
+        .hero-frame-wrap::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(251, 191, 36, 0.18) 50%, transparent 60%);
+            transform: rotate(30deg);
+            animation: lightSweep 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes lightSweep {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            50%, 100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        /* Static Elegant Ambient Frame Glow */
+        .hero-graphic::before {
+            content: '';
+            position: absolute;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            border-radius: 215px 215px 55px 55px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: rgba(245, 158, 11, 0.04);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating Glass Badges */
+        .hero-float-badge {
+            position: absolute;
+            background: rgba(11, 13, 20, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            border-radius: 50px;
+            padding: 0.75rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffffff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            animation: floatBadge 5s ease-in-out infinite;
+        }
+
+        .float-badge-1 {
+            top: 25px;
+            right: -25px;
+        }
+
+        .float-badge-2 {
+            bottom: 35px;
+            left: -25px;
+            animation-delay: -2.5s;
+        }
+
+        .hero-float-badge i {
+            font-size: 1.4rem;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.15);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-float-badge div {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .hero-float-badge strong {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: var(--font-heading);
+        }
+
+        .hero-float-badge span {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .showcase-card {
+            border-radius: 3rem;
+            border: none;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .showcase-card:hover .showcase-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .showcase-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .giant-card {
+            padding: 0 !important;
+            background: var(--card-bg) !important;
+            border: 1px solid var(--border-color) !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        .giant-card .img-wrapper {
+            height: 280px;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .giant-card .card-content {
+            padding: 1.5rem;
+        }
+
+        .giant-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--sunflower-yellow) !important;
+            box-shadow: 0 20px 40px var(--shadow-glow) !important;
+        }
+
+        .giant-card:hover .img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .feature-block {
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            min-height: 500px;
+        }
+
+        .feature-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image-side {
+            flex: 1;
+            height: 450px;
+            border-radius: 3rem;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .feature-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .feature-block:hover .feature-image-side img {
+            transform: scale(1.05);
+        }
+
+        .feature-text-side {
+            flex: 1;
+        }
+
+        .feature-tag {
+            color: var(--sunflower-yellow);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-family: var(--font-heading);
+        }
+
+        .feature-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 991px) {
+            .feature-block, .feature-block:nth-child(even) {
+                flex-direction: column;
+                padding: 60px 5%;
+                gap: 30px;
+                text-align: center;
+            }
+            .feature-image-side {
+                width: 100%;
+                height: 350px;
+            }
+            .feature-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="38" height="38" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                    <path d="M10 14C18 22 32 22 40 14" stroke="url(#nav_glow)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                    <circle cx="25" cy="27" r="9" fill="url(#nav_bulb)"/>
+                    <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                    <path d="M12 38C18 34 32 34 38 38" stroke="url(#nav_glow)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="nav_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D97706"/>
+                            <stop offset="1" stop-color="#F59E0B"/>
+                        </linearGradient>
+                        <radialGradient id="nav_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                            <stop stop-color="#F59E0B"/>
+                            <stop offset="1" stop-color="#D97706"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: var(--sunflower-yellow); letter-spacing: -0.5px; font-family: 'Cormorant Garamond', serif;">Lumina<span style="color: var(--sky-orange);">Drape</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Date</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Date</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section 2 -->
+    <header class="hero-2">
+        <div class="container-fluid px-lg-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content text-center text-lg-start">
+                        <div class="glass-badge">
+                            <i class="bi bi-stars"></i> Master Event Lighting & Draping Designers
+                        </div>
+                        <h1>Atmospheric Lighting <br><span style="color: var(--sunflower-yellow);">& Velvet Draping</span></h1>
+                        <p>Immerse your guests in magical visual splendor with wireless amber uplighting, cascading ceiling silk canopies, and statement crystal chandeliers.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start mt-4">
+                            <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-4 px-md-5 py-3 fs-6 text-nowrap">Reserve Event Date <i class="bi bi-arrow-right ms-2"></i></a>
+                            <a href="gallery.html" class="btn btn-project btn-outline-fest rounded-pill px-4 px-md-5 py-3 fs-6 text-nowrap" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); backdrop-filter: blur(5px);">View Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-graphic">
+                        <div class="hero-frame-wrap">
+                            <img src="assets/images/13.png" alt="Ambient Event Uplighting" class="hero-img-main">
+                        </div>
+                        <div class="hero-float-badge float-badge-1">
+                            <i class="bi bi-stars"></i>
+                            <div>
+                                <strong>Ambient Glow</strong>
+                                <span>Wireless RGBAW</span>
+                            </div>
+                        </div>
+                        <div class="hero-float-badge float-badge-2">
+                            <i class="bi bi-gem"></i>
+                            <div>
+                                <strong>Luxury Draping</strong>
+                                <span>Sheer & Velvet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Premium Signature Finishes Section -->
+    <section class="section-padding position-relative" style="background: var(--card-bg); overflow: hidden;">
+        <div class="container position-relative z-index-1">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center text-md-start">
+                    <div class="section-title mb-4 text-start">
+                        <span class="fw-bold text-uppercase" style="color: var(--sunflower-yellow); letter-spacing: 2px;">Visual Layout Artistry</span>
+                        <h2 class="display-4 fw-bolder text-main lh-sm mt-2 mb-4">Mastering the Art of Event Mood Lighting</h2>
+                    </div>
+                    <p class="lead text-muted mb-4 mx-auto mx-md-0" style="max-width: 600px;">
+                        We don't just illuminate rooms; we engineer unforgettable visual experiences. From strategic fixture placement to precise color temperature selection, our process guarantees breathtaking event photos.
+                    </p>
+                    <ul class="list-unstyled mb-5 d-inline-block text-start mx-auto">
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sunflower-yellow);">
+                                <i class="bi bi-lightbulb-fill"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">Wireless Smart Scene Dimming</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sky-orange);">
+                                <i class="bi bi-layers-fill"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">Flame-Retardant Fabric Tailoring</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sunflower-yellow);">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">White-Glove Rigging & Teardown</span>
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="about.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 fs-6 shadow-lg">Discover Our Artisans</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="text-center text-lg-end">
+                        <img src="assets/images/14.png" class="img-fluid rounded-4 shadow-lg" alt="Luxury Ceiling Draping & Lights">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Rigging & Chandelier Setup -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="row align-items-center flex-lg-row-reverse">
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img src="assets/images/15.png" class="img-fluid rounded-5 shadow-lg mx-auto" alt="Chandelier Rental Setup">
+                </div>
+                <div class="col-lg-6 pe-lg-5 text-center text-lg-start">
+                    <div class="section-title text-center text-lg-start mb-4">
+                        <span style="color: var(--sunflower-yellow);">Statement Lighting</span>
+                        <h2>Vintage & Modern Crystal Chandeliers</h2>
+                    </div>
+                    <p class="lead text-muted mb-4">Elevate your venue with handcrafted crystal chandelier installations hung over dance floors, head tables, and ceremony altars.</p>
+                    <a href="services.html" class="btn btn-project btn-primary-fest text-white mt-3 mx-auto mx-lg-0">Explore Chandelier Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Feature Blocks -->
+    <section class="section-padding" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">The LuminaDrape Standard</span>
+                <h2>Crafting Magical Event Spaces</h2>
+            </div>
+            <div class="feature-block">
+                <div class="feature-image-side">
+                    <img src="assets/images/16.png" alt="Wall & Column Uplighting">
+                </div>
+                <div class="feature-text-side">
+                    <span class="feature-tag">Perimeter Atmosphere</span>
+                    <h3 class="feature-title">Dynamic RGBAW LED Uplighting</h3>
+                    <p class="feature-desc">Custom programmed wall washes that match your exact floral and linen palette. Seamlessly transition from romantic candlelight dinner tones to vibrant party pulses during dancing.</p>
+                    <a href="quote.html" class="btn btn-project btn-outline-fest">Get Uplighting Quote</a>
+                </div>
+            </div>
+            <div class="feature-block">
+                <div class="feature-image-side">
+                    <img src="assets/images/17.png" alt="Ceiling Fabric Canopy">
+                </div>
+                <div class="feature-text-side">
+                    <span class="feature-tag">Ceiling & Backdrop Fabrics</span>
+                    <h3 class="feature-title">Custom Fabric Ceiling Canopy</h3>
+                    <p class="feature-desc">Soft sheer chiffon drapes sweeping gracefully across venue rafters, accented by warm fairy lights to soften cold ceiling beams and add romantic depth.</p>
+                    <a href="quote.html" class="btn btn-project btn-outline-fest">Get Draping Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section: Interactive Package Customizer & Budget Estimator -->
+    <section class="section-padding overflow-hidden position-relative" style="background: linear-gradient(135deg, #0b0d14 0%, #171a26 100%); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container position-relative z-1">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">Interactive Customizer</span>
+                <h2 class="display-5 fw-bolder text-white">Build Your Event Lighting Package</h2>
+                <p class="text-white-50 lead mx-auto" style="max-width: 700px;">Select your venue elements below to see an instant estimate for your event date.</p>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <!-- Interactive Controls -->
+                <div class="col-lg-7">
+                    <div class="p-4 p-md-5 rounded-5" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                        <h4 class="text-white fw-bold mb-4" style="font-family: var(--font-heading);">1. Select Venue Lighting & Fabric Services</h4>
+                        
+                        <div class="d-flex flex-column gap-3 mb-4">
+                            <!-- Option 1: Wireless Uplighting -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--sunflower-yellow); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-uplighting" checked onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Wireless RGBAW Perimeter Uplighting (12-24 Fixtures)</h6>
+                                        <small class="text-white-50">Flicker-free wall washes tuned to your color palette</small>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$450</span>
+                            </label>
+
+                            <!-- Option 2: Ceiling Draping -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-draping" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Sheer Chiffon Ceiling Drapery Canopy</h6>
+                                        <span class="small text-white-50">Flame-retardant fabric sweeping across rafters</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$750</span>
+                            </label>
+
+                            <!-- Option 3: Chandelier Rental -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-chandelier" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Vintage Crystal Chandelier Centerpiece</h6>
+                                        <span class="small text-white-50">Hand-cut crystal overhead rigging fixture</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$450</span>
+                            </label>
+
+                            <!-- Option 4: Monogram Gobo -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-gobo" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Custom Monogram Gobo Projection</h6>
+                                        <span class="small text-white-50">High-intensity logo/monogram on dancefloor</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$300</span>
+                            </label>
+
+                            <!-- Option 5: Pin-Spotting -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-pinspot" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Centerpiece Pin-Spotting Array (10 Tables)</h6>
+                                        <span class="small text-white-50">Narrow warm white beam highlights for florals</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$350</span>
+                            </label>
+                        </div>
+
+                        <!-- Venue Scale Range -->
+                        <div>
+                            <div class="d-flex justify-content-between text-white mb-2">
+                                <label class="fw-bold">Estimated Guest Count Scale:</label>
+                                <span id="guest-count-label" class="fw-bold font-monospace text-warning">150 Guests</span>
+                            </div>
+                            <input type="range" class="form-range" id="guest-range" min="50" max="400" step="25" value="150" oninput="calcEstimate()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant Estimate Card -->
+                <div class="col-lg-5">
+                    <div class="p-4 p-md-5 rounded-5 text-center position-relative overflow-hidden shadow-lg" style="background: var(--card-bg); border: 1px solid var(--sunflower-yellow);">
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase fw-bold mb-3" >ESTIMATED INVESTMENT</span>
+                        
+                        <div class="my-4">
+                            <span class="text-muted small d-block">Estimated All-Inclusive Package</span>
+                            <h1 class="display-3 fw-bolder mb-0" id="total-estimate-price" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">$650</h1>
+                            <small class="text-muted">Includes delivery, setup & midnight teardown</small>
+                        </div>
+
+                        <div class="text-start p-3 rounded-4 mb-4" style="background: var(--secondary-bg);">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-shield-check text-warning fs-5"></i>
+                                <strong class="text-main">Included Guarantees:</strong>
+                            </div>
+                            <ul class="list-unstyled text-muted small mb-0 pe-2">
+                                <li>✓ Dedicated On-Site Lighting Technician</li>
+                                <li>✓ Certified Load-Bearing Overhead Rigging</li>
+                                <li>✓ NFPA 701 Fire-Safety Compliant Fabrics</li>
+                            </ul>
+                        </div>
+
+                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold fs-6">
+                            Lock In Estimate & Reserve Date <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function calcEstimate() {
+                let base = 200;
+                if (document.getElementById('opt-uplighting').checked) base += 450;
+                if (document.getElementById('opt-draping').checked) base += 750;
+                if (document.getElementById('opt-chandelier').checked) base += 450;
+                if (document.getElementById('opt-gobo').checked) base += 300;
+                if (document.getElementById('opt-pinspot').checked) base += 350;
+
+                const guests = parseInt(document.getElementById('guest-range').value);
+                document.getElementById('guest-count-label').innerText = guests + " Guests";
+
+                const guestMultiplier = 1 + ((guests - 50) / 350) * 0.4;
+                const total = Math.round(base * guestMultiplier);
+
+                document.getElementById('total-estimate-price').innerText = "$" + total.toLocaleString();
+
+                // Highlight border when selected
+                const checkboxes = ['opt-uplighting', 'opt-draping', 'opt-chandelier', 'opt-gobo', 'opt-pinspot'];
+                checkboxes.forEach(id => {
+                    const cb = document.getElementById(id);
+                    const card = cb.closest('.customizer-option-card');
+                    if (cb.checked) {
+                        card.style.borderColor = 'var(--sunflower-yellow)';
+                        card.style.background = 'rgba(217, 119, 6, 0.15)';
+                    } else {
+                        card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                        card.style.background = 'rgba(255, 255, 255, 0.05)';
+                    }
+                });
+            }
+            // Initial call
+            calcEstimate();
+        </script>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                        <path d="M10 14C18 22 32 22 40 14" stroke="url(#foot_glow)" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                        <circle cx="25" cy="27" r="9" fill="url(#foot_bulb)"/>
+                        <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                        <path d="M12 38C18 34 32 34 38 38" stroke="url(#foot_glow)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="foot_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D97706"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                            </linearGradient>
+                            <radialGradient id="foot_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                                <stop stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -0.5px; font-family: 'Cormorant Garamond', serif; color: var(--sunflower-yellow);">
+                            Lumina<span style="color: var(--sky-orange);">Drape</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Custom Event Lighting & Draping Design Company. Creating ambient, unforgettable visual atmospheres for weddings, galas, and corporate events.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Portfolio</h5>
+                    <ul>
+                        <li><a href="gallery.html">Lighting Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="quote.html">Date Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Event Date Enquiry</h5>
+                    <p class="text-muted">Check if our master lighting design crew is available for your event date.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Event Date</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 Custom Event Lighting & Draping Design Company (LuminaDrape). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Event Lighting & Draping Design Company | Ambient Lighting, Draping & Chandelier Rental</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Custom Event Lighting & Draping Design Company offering ambient venue lighting transformations, uplighting, luxury fabric draping, pin-spotting, and chandelier rentals.">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(11, 13, 20, 0.72), rgba(11, 13, 20, 0.75)), url('assets/images/1.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+        
+        .hero-content h1 {
+            background: linear-gradient(135deg, #ffffff 40%, var(--sunflower-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700 !important;
+        }
+        
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.92) !important;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="38" height="38" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                    <path d="M10 14C18 22 32 22 40 14" stroke="url(#nav_glow)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                    <circle cx="25" cy="27" r="9" fill="url(#nav_bulb)"/>
+                    <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                    <path d="M12 38C18 34 32 34 38 38" stroke="url(#nav_glow)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="nav_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#D97706"/>
+                            <stop offset="1" stop-color="#F59E0B"/>
+                        </linearGradient>
+                        <radialGradient id="nav_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                            <stop stop-color="#F59E0B"/>
+                            <stop offset="1" stop-color="#D97706"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: var(--sunflower-yellow); letter-spacing: -0.5px; font-family: 'Cormorant Garamond', Georgia, serif;">Lumina<span style="color: var(--sky-orange);">Drape</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Date</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Date</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-9 hero-content text-center" style="z-index: 1;">
+                    <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill text-uppercase font-monospace fw-bold" style="letter-spacing: 1.5px;">Custom Event Lighting & Draping</span>
+                    <h1 class="display-3 fw-bold">Transform Venues with Ambient Lighting & Draping</h1>
+                    <p class="mx-auto lead mb-4">Bespoke architectural uplighting, luxury ceiling fabric draping, pin-spotting, and vintage crystal chandelier rentals for unforgettable weddings, galas, and private celebrations.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a href="services.html" class="btn btn-project btn-primary-fest px-5 py-3 fs-6">Explore Services</a>
+                        <a href="quote.html" class="btn btn-project btn-outline-light px-5 py-3 fs-6" style="border: 1px solid rgba(255, 255, 255, 0.7) !important;">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Core Event Lighting & Draping Services -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span>Immersive Atmospheres</span>
+                <h2>Core Lighting & Draping Services</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center text-lg-start">
+                        <div class="img-wrapper">
+                            <img src="assets/images/2.png" alt="Ambient Event Uplighting">
+                        </div>
+                        <h3>Ambient Perimeter Uplighting</h3>
+                        <p>Wireless RGBAW LED uplighting to highlight grand columns, walls, and architectural details in your wedding palette hues.</p>
+                        <a href="quote.html" class="btn btn-outline-fest w-100">Enquire Uplighting</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card text-center text-lg-start">
+                        <div class="img-wrapper">
+                            <img src="assets/images/3.png" alt="Ceiling & Backdrop Draping">
+                        </div>
+                        <h3>Luxury Fabric Ceiling Draping</h3>
+                        <p>Elegant sheer white, champagne, and velvet drapery canopy designs paired with soft fairy light twinkle effects.</p>
+                        <a href="quote.html" class="btn btn-outline-fest w-100">Enquire Draping</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="service-card text-center text-lg-start">
+                        <div class="img-wrapper">
+                            <img src="assets/images/4.png" alt="Crystal Chandelier Rental">
+                        </div>
+                        <h3>Grand Chandelier Rentals</h3>
+                        <p>Statement crystal, bronze, and modern brass chandeliers with wireless dimmer controls to crown your event space.</p>
+                        <a href="quote.html" class="btn btn-outline-fest w-100">Enquire Chandeliers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Comprehensive Property Care / Event Tailoring -->
+    <section class="section-padding" style="background: var(--secondary-bg); border-radius: 5rem 5rem 0 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="assets/images/5.png" class="img-fluid rounded-5 shadow-lg" alt="Event Lighting & Draping Transformation" style="max-height: 420px; width: 100%; object-fit: cover;">
+                </div>
+                <div class="col-lg-6 px-lg-4 text-center text-lg-start">
+                    <div class="section-title text-center text-lg-start mb-4">
+                        <span>Tailored for Elegance</span>
+                        <h2>Bespoke Visual Layouts & Atmospheric Moods</h2>
+                    </div>
+                    <p class="mb-4">From romantic wedding receptions to high-profile corporate galas, our master lighting designers transform plain banquet halls, tents, and historic estates into awe-inspiring visual masterworks.</p>
+                    <ul class="list-unstyled mb-5 d-inline-block text-start">
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-check-circle-fill text-warning"></i> Wireless smart LED fixtures with dynamic scene transitions</li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-check-circle-fill text-warning"></i> Certified flame-retardant sheer, chiffon, and velvet fabrics</li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-check-circle-fill text-warning"></i> Dedicated on-site technicians for live event lighting control</li>
+                    </ul>
+                    <div class="mt-2">
+                        <a href="pricing.html" class="btn btn-project btn-primary-fest">View Pricing Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section 1: Venue Visual Transformations (Showcase Grid) -->
+    <section class="section-padding" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Venue Visual Transformations</span>
+                <h2 class="display-5 fw-bolder text-main mt-2">Breathtaking Atmosphere Design</h2>
+                <p class="text-muted mt-2 lead mx-auto" style="max-width: 650px;">See how our custom uplighting, ceiling draping canopies, and crystal chandeliers turn plain event spaces into magical visual masterpieces.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg position-relative h-100 border" style="border-color: var(--border-color) !important; background: var(--secondary-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 320px;">
+                            <img src="assets/images/6.png" class="w-100 h-100 object-fit-cover" alt="Grand Ballroom Ambient Transformation" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >PERIMETER UPLIGHTING</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Grand Ballroom Perimeter Uplighting</h4>
+                            <p class="text-muted mb-3">Wireless RGBAW LED perimeter wash highlighting historic architectural arches, sheer backdrop drapes, and tall pillars with warm golden tones.</p>
+                            <div class="d-flex align-items-center justify-content-between pt-3 border-top" style="border-color: var(--border-color) !important;">
+                                <span class="small text-muted"><i class="bi bi-geo-alt me-1 text-warning"></i> Estate Ballroom Setup</span>
+                                <a href="gallery.html" class="fw-bold text-warning text-decoration-none">Explore Gallery <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg position-relative h-100 border" style="border-color: var(--border-color) !important; background: var(--secondary-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 320px;">
+                            <img src="assets/images/7.png" class="w-100 h-100 object-fit-cover" alt="Ceiling Fabric Canopy & Fairy Lights" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >CEILING SILK CANOPY</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Ceiling Draping & Fairy Light Rigging</h4>
+                            <p class="text-muted mb-3">Cascading sheer white chiffon canopy swoops integrated with warm fairy twinkle lights for romantic wedding receptions and gala venues.</p>
+                            <div class="d-flex align-items-center justify-content-between pt-3 border-top" style="border-color: var(--border-color) !important;">
+                                <span class="small text-muted"><i class="bi bi-stars me-1 text-warning"></i> Custom Fabric Suspension</span>
+                                <a href="gallery.html" class="fw-bold text-warning text-decoration-none">Explore Gallery <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg position-relative h-100 border" style="border-color: var(--border-color) !important; background: var(--secondary-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 320px;">
+                            <img src="assets/images/8.png" class="w-100 h-100 object-fit-cover" alt="Vintage Crystal Chandelier Rigging" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >CRYSTAL CHANDELIERS</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Vintage Crystal Chandelier Centerpieces</h4>
+                            <p class="text-muted mb-3">Statement 6-foot crystal chandeliers safely rigged over head tables and dance floors, fitted with wireless dimmers for seamless ambient shifts.</p>
+                            <div class="d-flex align-items-center justify-content-between pt-3 border-top" style="border-color: var(--border-color) !important;">
+                                <span class="small text-muted"><i class="bi bi-gem me-1 text-warning"></i> Rigged Safety Systems</span>
+                                <a href="gallery.html" class="fw-bold text-warning text-decoration-none">Explore Gallery <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg position-relative h-100 border" style="border-color: var(--border-color) !important; background: var(--secondary-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 320px;">
+                            <img src="assets/images/9.png" class="w-100 h-100 object-fit-cover" alt="Custom Monogram Gobo Projection" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold" >GOBO PROJECTION</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Custom Monogram Dance Floor</h4>
+                            <p class="text-muted mb-3">Custom monogram gobo light projection illuminating polished hardwood dance floors with crisp warm precision.</p>
+                            <div class="d-flex align-items-center justify-content-between pt-3 border-top" style="border-color: var(--border-color) !important;">
+                                <span class="small text-muted"><i class="bi bi-lightbulb me-1 text-warning"></i> Wireless RGBAW Control</span>
+                                <a href="gallery.html" class="fw-bold text-warning text-decoration-none">Explore Gallery <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="gallery.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 fs-6">View Complete Transformation Gallery <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: How It Works / Our Process -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Our Seamless Process</span>
+                <h2 class="text-main">From Vision to Illumination</h2>
+                <p class="text-muted mt-2">A transparent, white-glove approach to designing your event lighting & draping layout.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Step 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card p-4 text-center h-100 shadow-sm rounded-4" style="background: var(--card-bg);">
+                        <img src="assets/images/10.png" class="img-fluid rounded-4 mb-4" alt="Event Consultation" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="h1 fw-bold mb-3" style="color: var(--sunflower-yellow); font-family: var(--font-heading);">01</div>
+                        <h4 class="text-main mb-3">Venue Consultation</h4>
+                        <p class="text-muted mb-0">We review floorplans, ceiling heights, color themes, and power requirements with you or your event planner.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card p-4 text-center h-100 shadow-sm rounded-4" style="background: var(--card-bg);">
+                        <img src="assets/images/11.png" class="img-fluid rounded-4 mb-4" alt="Custom Lighting Proposal" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="h1 fw-bold mb-3" style="color: var(--sky-orange); font-family: var(--font-heading);">02</div>
+                        <h4 class="text-main mb-3">Custom Lighting Layout</h4>
+                        <p class="text-muted mb-0">Our team designs a tailored lighting plot, fabric draping scheme, and itemized transparent quotation.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card p-4 text-center h-100 shadow-sm rounded-4" style="background: var(--card-bg);">
+                        <img src="assets/images/12.png" class="img-fluid rounded-4 mb-4" alt="Flawless Execution" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="h1 fw-bold mb-3" style="color: var(--sunflower-yellow); font-family: var(--font-heading);">03</div>
+                        <h4 class="text-main mb-3">Flawless Setup & Monitoring</h4>
+                        <p class="text-muted mb-0">Professional white-glove rigging before your event starts, live scene control during dinner & dancing, and prompt teardown.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section: Interactive Ambient Lighting & Palette Studio -->
+    <section class="section-padding overflow-hidden position-relative" style="background: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">Interactive Palette Studio</span>
+                <h2 class="display-5 fw-bolder text-main">Ambient Lighting & Mood Studio</h2>
+                <p class="text-muted lead mx-auto" style="max-width: 700px;">Explore how custom color tuning and fabric pairing transform the mood of your event space in real time.</p>
+            </div>
+
+            <div class="row align-items-center g-5">
+                <!-- Color Selector Controls -->
+                <div class="col-lg-5">
+                    <h3 class="fw-bold mb-4" style="font-family: var(--font-heading);">Select Your Atmosphere</h3>
+                    <div class="d-flex flex-column gap-3" id="palette-controls">
+                        <!-- Mood 1 -->
+                        <div class="palette-option-card active p-4 rounded-4 cursor-pointer d-flex align-items-center justify-content-between" 
+                             style="background: var(--secondary-bg); border: 2px solid var(--sunflower-yellow); transition: all 0.3s ease; cursor: pointer;"
+                             onclick="switchPalette('amber', this)">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="palette-color-swatch rounded-circle shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #f59e0b, #d97706); border: 2px solid #fff; flex-shrink: 0;"></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Romantic Amber Sunset</h5>
+                                    <span class="small text-muted">2700K Warm Glow + Sheer Champagne Drapery</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-check-circle-fill fs-4" style="color: var(--sunflower-yellow);"></i>
+                        </div>
+
+                        <!-- Mood 2 -->
+                        <div class="palette-option-card p-4 rounded-4 cursor-pointer d-flex align-items-center justify-content-between" 
+                             style="background: var(--secondary-bg); border: 2px solid transparent; transition: all 0.3s ease; cursor: pointer;"
+                             onclick="switchPalette('purple', this)">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="palette-color-swatch rounded-circle shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #8b5cf6, #6d28d9); border: 2px solid #fff; flex-shrink: 0;"></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Royal Sapphire Velvet</h5>
+                                    <span class="small text-muted">Deep Purple Uplighting + Heavy Satin Backdrops</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-check-circle-fill fs-4 d-none" style="color: #8b5cf6;"></i>
+                        </div>
+
+                        <!-- Mood 3 -->
+                        <div class="palette-option-card p-4 rounded-4 cursor-pointer d-flex align-items-center justify-content-between" 
+                             style="background: var(--secondary-bg); border: 2px solid transparent; transition: all 0.3s ease; cursor: pointer;"
+                             onclick="switchPalette('rose', this)">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="palette-color-swatch rounded-circle shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #ec4899, #be185d); border: 2px solid #fff; flex-shrink: 0;"></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Blush Rose Romance</h5>
+                                    <span class="small text-muted">Soft Pink Glow + Crystal Chandelier Reflections</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-check-circle-fill fs-4 d-none" style="color: #ec4899;"></i>
+                        </div>
+
+                        <!-- Mood 4 -->
+                        <div class="palette-option-card p-4 rounded-4 cursor-pointer d-flex align-items-center justify-content-between" 
+                             style="background: var(--secondary-bg); border: 2px solid transparent; transition: all 0.3s ease; cursor: pointer;"
+                             onclick="switchPalette('emerald', this)">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="palette-color-swatch rounded-circle shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #10b981, #047857); border: 2px solid #fff; flex-shrink: 0;"></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-family: var(--font-heading);">Emerald Garden Night</h5>
+                                    <span class="small text-muted">Bistro Festoon Stringing + Botanical Accent Uplights</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-check-circle-fill fs-4 d-none" style="color: #10b981;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Preview Visual Card -->
+                <div class="col-lg-7">
+                    <div class="position-relative p-4 p-md-5 rounded-5 overflow-hidden shadow-lg" id="palette-preview-card" style="background: #0b0d14; border: 1px solid var(--border-color); min-height: 440px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <!-- Ambient Dynamic Glow Overlay -->
+                        <div id="palette-glow-bg" class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 70% 30%, rgba(217, 119, 6, 0.45) 0%, rgba(11, 13, 20, 0.95) 75%); transition: all 0.6s ease; pointer-events: none;"></div>
+
+                        <div class="position-relative z-1 mb-4">
+                            <span id="palette-badge" class="badge px-4 py-2 rounded-pill font-monospace text-uppercase fw-bold mb-3" style="background: rgba(217, 119, 6, 0.2); color: #f59e0b; border: 1px solid #d97706;">WARM AMBER SCENE</span>
+                            <h2 id="palette-title" class="display-5 fw-bold text-white mb-3" style="font-family: var(--font-heading);">Romantic Amber Sunset</h2>
+                            <p id="palette-desc" class="lead text-white-50 mb-0" style="max-width: 550px;">Creates a cozy, timeless ballroom glow that softens skin tones in photography and accentuates table linens.</p>
+                        </div>
+
+                        <div class="position-relative z-1 row g-3 pt-4 border-top" style="border-color: rgba(255,255,255,0.12) !important;">
+                            <div class="col-6 col-sm-3">
+                                <span class="d-block small text-white-50">Color Temp</span>
+                                <strong id="palette-temp" class="text-white">2700K Warm</strong>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <span class="d-block small text-white-50">Fabric Pairing</span>
+                                <strong id="palette-fabric" class="text-white">Champagne Sheer</strong>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <span class="d-block small text-white-50">DMX Control</span>
+                                <strong id="palette-dmx" class="text-white">Wireless RGBAW</strong>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                                <span class="d-block small text-white-50">Best Suited For</span>
+                                <strong id="palette-best" class="text-white">Weddings & Galas</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function switchPalette(theme, cardElem) {
+                const options = document.querySelectorAll('.palette-option-card');
+                options.forEach(opt => {
+                    opt.style.border = '2px solid transparent';
+                    const icon = opt.querySelector('.bi-check-circle-fill');
+                    if (icon) icon.classList.add('d-none');
+                });
+
+                cardElem.style.border = '2px solid var(--sunflower-yellow)';
+                const activeIcon = cardElem.querySelector('.bi-check-circle-fill');
+                if (activeIcon) activeIcon.classList.remove('d-none');
+
+                const glow = document.getElementById('palette-glow-bg');
+                const title = document.getElementById('palette-title');
+                const desc = document.getElementById('palette-desc');
+                const badge = document.getElementById('palette-badge');
+                const temp = document.getElementById('palette-temp');
+                const fabric = document.getElementById('palette-fabric');
+                const dmx = document.getElementById('palette-dmx');
+                const best = document.getElementById('palette-best');
+
+                if (theme === 'amber') {
+                    glow.style.background = 'radial-gradient(circle at 70% 30%, rgba(217, 119, 6, 0.5) 0%, rgba(11, 13, 20, 0.95) 75%)';
+                    badge.style.background = 'rgba(217, 119, 6, 0.2)';
+                    badge.style.color = '#f59e0b';
+                    badge.style.borderColor = '#d97706';
+                    badge.innerText = 'WARM AMBER SCENE';
+                    title.innerText = 'Romantic Amber Sunset';
+                    desc.innerText = 'Creates a cozy, timeless ballroom glow that softens skin tones in photography and accentuates table linens.';
+                    temp.innerText = '2700K Warm';
+                    fabric.innerText = 'Champagne Sheer';
+                    dmx.innerText = 'Wireless RGBAW';
+                    best.innerText = 'Weddings & Galas';
+                } else if (theme === 'purple') {
+                    glow.style.background = 'radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.5) 0%, rgba(11, 13, 20, 0.95) 75%)';
+                    badge.style.background = 'rgba(139, 92, 246, 0.2)';
+                    badge.style.color = '#a78bfa';
+                    badge.style.borderColor = '#8b5cf6';
+                    badge.innerText = 'ROYAL SAPPHIRE SCENE';
+                    title.innerText = 'Royal Sapphire Velvet';
+                    desc.innerText = 'Immersive deep purple wall washes combined with high-contrast stage lighting for award galas and grand entries.';
+                    temp.innerText = '4500K Vivid';
+                    fabric.innerText = 'Heavy Velvet Drapes';
+                    dmx.innerText = 'DMX Master Console';
+                    best.innerText = 'Award Shows & Galas';
+                } else if (theme === 'rose') {
+                    glow.style.background = 'radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.5) 0%, rgba(11, 13, 20, 0.95) 75%)';
+                    badge.style.background = 'rgba(236, 72, 153, 0.2)';
+                    badge.style.color = '#f472b6';
+                    badge.style.borderColor = '#ec4899';
+                    badge.innerText = 'BLUSH ROSE SCENE';
+                    title.innerText = 'Blush Rose Romance';
+                    desc.innerText = 'Delicate rose pink hues synchronized with pin-spotted floral table centerpieces for an ethereal romantic feeling.';
+                    temp.innerText = '3200K Soft Rose';
+                    fabric.innerText = 'Silk & Crystal Rigging';
+                    dmx.innerText = 'App Scene Presets';
+                    best.innerText = 'Receptions & Rehearsals';
+                } else if (theme === 'emerald') {
+                    glow.style.background = 'radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.5) 0%, rgba(11, 13, 20, 0.95) 75%)';
+                    badge.style.background = 'rgba(16, 185, 129, 0.2)';
+                    badge.style.color = '#34d399';
+                    badge.style.borderColor = '#10b981';
+                    badge.innerText = 'EMERALD GARDEN SCENE';
+                    title.innerText = 'Emerald Garden Night';
+                    desc.innerText = 'Vibrant outdoor festoon lighting combined with botanical tree uplighting for fairy-tale garden receptions.';
+                    temp.innerText = '3000K Bistro Festoon';
+                    fabric.innerText = 'Outdoor Waterproof Cable';
+                    dmx.innerText = 'Smart Battery Pack';
+                    best.innerText = 'Garden Receptions';
+                }
+            }
+        </script>
+    </section>
+
+    <!-- New Section: Why Choose Us -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Why Choose LuminaDrape</span>
+                <h2>The LuminaDrape Guarantee</h2>
+                <p class="text-muted mt-2">Unmatched artistic precision and rigging safety for peace of mind on your big day.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 shadow border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="icon-circle text-white mb-3 mx-auto d-flex align-items-center justify-content-center" style="background: var(--sunflower-yellow); width: 70px; height: 70px; border-radius: 50%; font-size: 1.8rem;">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5 class="fw-bold">Certified Rigging Safety</h5>
+                        <p class="text-muted mb-0 small">Fully insured master technicians with structural safety certifications for overhead fixtures.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 shadow border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="icon-circle text-white mb-3 mx-auto d-flex align-items-center justify-content-center" style="background: var(--sky-orange); width: 70px; height: 70px; border-radius: 50%; font-size: 1.8rem;">
+                            <i class="bi bi-magic"></i>
+                        </div>
+                        <h5 class="fw-bold">Wireless Smart LED</h5>
+                        <p class="text-muted mb-0 small">Flicker-free, battery-powered RGBAW fixtures with seamless mobile app color tuning.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 shadow border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="icon-circle text-white mb-3 mx-auto d-flex align-items-center justify-content-center" style="background: var(--sunflower-yellow); width: 70px; height: 70px; border-radius: 50%; font-size: 1.8rem;">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h5 class="fw-bold">Punctual Timelines</h5>
+                        <p class="text-muted mb-0 small">Strict load-in schedule execution so your room is pristine long before doors open.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 h-100 shadow border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="icon-circle text-white mb-3 mx-auto d-flex align-items-center justify-content-center" style="background: var(--sky-orange); width: 70px; height: 70px; border-radius: 50%; font-size: 1.8rem;">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h5 class="fw-bold">100% Visual Excellence</h5>
+                        <p class="text-muted mb-0 small">We meticulously adjust every drape angle and light fixture until the ambient room glow is perfect.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Customer Reviews -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span>Client Love</span>
+                <h2>What Planners & Couples Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="mb-3" style="color: var(--sunflower-yellow);">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic">"LuminaDrape completely transformed our plain ballroom into a glowing amber paradise! The ceiling draping and crystal chandelier were the highlight of our wedding photos."</p>
+                        <h6 class="fw-bold mt-auto" style="font-family: var(--font-heading); font-size: 1.1rem;">- Victoria & Marcus H.</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="mb-3" style="color: var(--sunflower-yellow);">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic">"As a luxury wedding planner, I rely heavily on reliable lighting and drape crews. LuminaDrape's team is punctual, creative, and extremely professional."</p>
+                        <h6 class="fw-bold mt-auto" style="font-family: var(--font-heading); font-size: 1.1rem;">- Elena Rostova (Lead Event Producer)</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="mb-3" style="color: var(--sunflower-yellow);">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="fst-italic">"The custom gobo monogram projection and pin-spotting on our floral centerpieces brought our corporate gala to a whole new level of sophistication."</p>
+                        <h6 class="fw-bold mt-auto" style="font-family: var(--font-heading); font-size: 1.1rem;">- David Vance (Corporate Gala Director)</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section 2: Floating CTA -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="floating-cta-section p-5 rounded-5 text-white" style="background: linear-gradient(135deg, #0b0d14, #1b1610); border: 1px solid var(--border-color);">
+                <div class="floating-cta-content row align-items-center">
+                    <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+                        <h2 class="display-5 fw-bold mb-3 text-white" style="font-family: var(--font-heading);">Ready to Light Up Your Event?</h2>
+                        <p class="lead mb-0" style="color: rgba(255,255,255,0.9);">
+                            Prime wedding and gala dates reserve quickly. Contact our ambient lighting and fabric design specialists today to reserve your event date.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <a href="quote.html" class="btn btn-project btn-primary-fest px-4 py-3 fs-6 rounded-pill shadow-lg text-nowrap">
+                            Check Event Availability <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" fill="#0B0D14" stroke="#D97706" stroke-width="2"/>
+                        <path d="M10 14C18 22 32 22 40 14" stroke="url(#foot_glow)" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M25 8V18" stroke="#F59E0B" stroke-width="2"/>
+                        <circle cx="25" cy="27" r="9" fill="url(#foot_bulb)"/>
+                        <path d="M21 27L25 21L29 27" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="27" r="3" fill="#FFFFFF"/>
+                        <path d="M12 38C18 34 32 34 38 38" stroke="url(#foot_glow)" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="foot_glow" x1="10" y1="14" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#D97706"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                            </linearGradient>
+                            <radialGradient id="foot_bulb" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25 27) rotate(90) scale(10)">
+                                <stop stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -0.5px; font-family: 'Cormorant Garamond', serif; color: var(--sunflower-yellow);">
+                            Lumina<span style="color: var(--sky-orange);">Drape</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Custom Event Lighting & Draping Design Company. Transforming venues with ambient uplighting, sheer fabric draping, and crystal chandelier rentals.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Lighting Services</a></li>
+                        <li><a href="pricing.html">Pricing Guide</a></li>
+                        <li><a href="quote.html">Enquire Date</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="services.html#uplighting">Ambient Uplighting</a></li>
+                        <li><a href="services.html#draping">Ceiling Draping</a></li>
+                        <li><a href="services.html#chandeliers">Chandelier Rental</a></li>
+                        <li><a href="gallery.html">Event Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Stay Inspired</h5>
+                    <p class="text-muted">Subscribe for event design inspiration & lighting trends.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill-start border-warning" placeholder="Email address">
+                        <button class="btn btn-project btn-primary-fest rounded-pill-end" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 Custom Event Lighting & Draping Design Company (LuminaDrape). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
