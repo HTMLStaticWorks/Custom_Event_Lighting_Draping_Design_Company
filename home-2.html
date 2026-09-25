@@ -71,11 +71,35 @@
             line-height: 1.6;
         }
 
+        @media (max-width: 991px) {
+            .hero-2 { padding: 60px 4% 50px; text-align: center; }
+            .hero-2 .hero-content { margin-bottom: 2rem; }
+            .hero-graphic { max-width: 310px; margin-top: 1.5rem; }
+            .hero-float-badge { padding: 0.35rem 0.75rem; gap: 7px; }
+            .hero-float-badge strong { font-size: 0.72rem; }
+            .hero-float-badge span { font-size: 0.6rem; }
+            .hero-float-badge i { width: 24px; height: 24px; font-size: 0.85rem; }
+            .float-badge-1 { top: 12px; right: 12px; }
+            .float-badge-2 { bottom: 15px; left: 12px; }
+        }
         @media (max-width: 768px) {
-            .hero-2 .hero-content h1 { font-size: 3.2rem; }
-            .hero-2 { padding: 100px 5%; text-align: center; justify-content: center; }
-            .hero-2 .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-2 { padding: 50px 4% 40px; text-align: center; justify-content: center; }
+            .hero-2 .hero-content h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+            .hero-2 .hero-content p { font-size: 1.1rem; margin-bottom: 1.8rem; margin-left: auto; margin-right: auto; }
             .hero-2 .d-flex { justify-content: center; }
+            .hero-graphic { max-width: 270px; margin-top: 1.5rem; }
+            .float-badge-1 { top: 10px; right: 10px; }
+            .float-badge-2 { bottom: 12px; left: 10px; }
+        }
+        @media (max-width: 576px) {
+            .hero-2 .hero-content h1 { font-size: 2.1rem; }
+            .hero-graphic { max-width: 230px; margin-top: 1.5rem; }
+            .hero-float-badge { padding: 0.28rem 0.55rem; gap: 5px; }
+            .hero-float-badge strong { font-size: 0.65rem; }
+            .hero-float-badge span { font-size: 0.54rem; }
+            .hero-float-badge i { width: 20px; height: 20px; font-size: 0.75rem; }
+            .float-badge-1 { top: 8px; right: 8px; }
+            .float-badge-2 { bottom: 10px; left: 8px; }
         }
         
         .glass-badge {
@@ -191,33 +215,33 @@
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(245, 158, 11, 0.4);
             border-radius: 50px;
-            padding: 0.75rem 1.4rem;
+            padding: 0.4rem 0.9rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             color: #ffffff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             z-index: 10;
             animation: floatBadge 5s ease-in-out infinite;
         }
 
         .float-badge-1 {
-            top: 25px;
-            right: -25px;
+            top: 20px;
+            right: 15px;
         }
 
         .float-badge-2 {
-            bottom: 35px;
-            left: -25px;
+            bottom: 25px;
+            left: 15px;
             animation-delay: -2.5s;
         }
 
         .hero-float-badge i {
-            font-size: 1.4rem;
+            font-size: 0.95rem;
             color: #fbbf24;
             background: rgba(251, 191, 36, 0.15);
-            width: 38px;
-            height: 38px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -227,18 +251,18 @@
         .hero-float-badge div {
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .hero-float-badge strong {
-            font-size: 0.9rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: #ffffff;
             font-family: var(--font-heading);
         }
 
         .hero-float-badge span {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: rgba(255, 255, 255, 0.75);
         }
 
@@ -464,7 +488,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 d-none d-lg-block">
+                <div class="col-lg-5 mt-5 mt-lg-0">
                     <div class="hero-graphic">
                         <div class="hero-frame-wrap">
                             <img src="assets/images/13.png" alt="Ambient Event Uplighting" class="hero-img-main">
